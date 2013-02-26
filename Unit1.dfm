@@ -1,0 +1,144 @@
+object Form1: TForm1
+  Left = 477
+  Top = 212
+  Caption = #1058#1072#1073#1091#1083#1080#1088#1086#1074#1072#1085#1080#1077' '#1090#1088#1105#1093' '#1092#1091#1085#1082#1094#1080#1081
+  ClientHeight = 511
+  ClientWidth = 567
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -10
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 7
+    Top = 7
+    Width = 92
+    Height = 13
+    Caption = #1042#1074#1077#1076#1080#1090#1077' '#1079#1085#1072#1095#1077#1085#1080#1103
+  end
+  object Label2: TLabel
+    Left = 7
+    Top = 39
+    Width = 7
+    Height = 13
+    Caption = #1042
+  end
+  object Label3: TLabel
+    Left = 7
+    Top = 78
+    Width = 7
+    Height = 13
+    Caption = #1057
+  end
+  object Edit1: TEdit
+    Left = 20
+    Top = 39
+    Width = 78
+    Height = 21
+    ReadOnly = True
+    TabOrder = 0
+    Text = '2'
+  end
+  object UpDown1: TUpDown
+    Left = 98
+    Top = 39
+    Width = 16
+    Height = 21
+    Associate = Edit1
+    Min = -20
+    Max = 20
+    Position = 2
+    TabOrder = 1
+  end
+  object RadioGroup1: TRadioGroup
+    Left = 130
+    Top = 13
+    Width = 150
+    Height = 124
+    Caption = 'D '#1085#1072#1095#1072#1083#1100#1085#1086#1077
+    ItemIndex = 0
+    Items.Strings = (
+      'Monday'
+      'Tuesday'
+      'Weednesday'
+      'Thursday'
+      'Friday'
+      'Saturday'
+      'Sunday')
+    TabOrder = 2
+    OnClick = RadioGroup1Click
+  end
+  object CheckBox1: TCheckBox
+    Left = 7
+    Top = 111
+    Width = 104
+    Height = 20
+    Caption = #1040', '#1087#1086#1089#1090#1072#1074#1100#1090#1077' v'
+    Checked = True
+    State = cbChecked
+    TabOrder = 3
+  end
+  object StringGrid1: TStringGrid
+    Left = 7
+    Top = 143
+    Width = 403
+    Height = 176
+    ColCount = 4
+    Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goColSizing]
+    TabOrder = 4
+    ColWidths = (
+      64
+      107
+      92
+      82)
+  end
+  object Edit2: TEdit
+    Left = 20
+    Top = 78
+    Width = 78
+    Height = 21
+    TabOrder = 5
+    Text = '3,0'
+    OnExit = Edit2Exit
+  end
+  object RadioGroup2: TRadioGroup
+    Left = 299
+    Top = 13
+    Width = 144
+    Height = 124
+    Caption = 'D '#1082#1086#1085#1077#1095#1085#1086#1077
+    ItemIndex = 3
+    Items.Strings = (
+      'Monday'
+      'Tuesday'
+      'Weednesday'
+      'Thursday'
+      'Friday'
+      'Saturday'
+      'Sunday')
+    TabOrder = 6
+    OnClick = RadioGroup2Click
+  end
+  object Button1: TButton
+    Left = 7
+    Top = 332
+    Width = 176
+    Height = 52
+    Caption = #1056#1077#1096#1080#1090#1100
+    TabOrder = 7
+    OnClick = Button1Click
+  end
+  object Button2: TButton
+    Left = 254
+    Top = 332
+    Width = 189
+    Height = 52
+    Caption = #1047#1072#1082#1088#1099#1090#1100
+    TabOrder = 8
+    OnClick = Button2Click
+  end
+end

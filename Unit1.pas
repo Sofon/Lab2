@@ -1,0 +1,143 @@
+unit Unit1;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Grids, ExtCtrls, ComCtrls,math;
+
+type
+  TForm1 = class(TForm)
+    Edit1: TEdit;
+    Label1: TLabel;
+    UpDown1: TUpDown;
+    RadioGroup1: TRadioGroup;
+    CheckBox1: TCheckBox;
+    StringGrid1: TStringGrid;
+    Label2: TLabel;
+    Label3: TLabel;
+    Edit2: TEdit;
+    RadioGroup2: TRadioGroup;
+    Button1: TButton;
+    Button2: TButton;
+    procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+    procedure Edit2Exit(Sender: TObject);
+    procedure RadioGroup1Click(Sender: TObject);
+    procedure RadioGroup2Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+const
+  // перва€ строка таблицы
+  verh : array [0..3] of string[20] =   (' d  \  F', 'F1(a,b,c,d)', 'F2(a,b,c,d)', 'F3(a,b,c,d)');
+  // значени€ в первом столбце
+  perStr : array [0..6] of string[20] =  ('Monday', 'Tuesday', 'Weednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday');
+
+type
+  per = (Monday,Tuesday,Weednesday,Thursday,Friday,Saturday,Sunday);
+
+//сюда можно написать свои функции f1, f2, f3
+
+
+procedure TForm1.Button1Click(Sender: TObject);
+var
+ b,i: shortint;
+ c: single;
+ a: boolean;
+ d,d1,d2: per;
+ Res1: boolean;
+ Res2: integer;
+ Res3: single;
+begin
+ a:=CheckBox1.Checked;
+ b:=UpDown1.Position;
+ c:=StrToFloat(Edit2.Text);
+ d1:=per(RadioGroup1.ItemIndex);
+ d2:=per(RadioGroup2.ItemIndex);
+
+ // поготовка таблицы
+ // количесво строк
+ StringGrid1.RowCount:=Ord(d2)-Ord(d1)+2;
+ // заголовок
+ for i:=0 to 3 do
+   StringGrid1.Cells[i,0]:=verh[i];
+
+ // значени€ d в таблице
+ for i:=Ord(d1) to Ord(d2) do
+   StringGrid1.Cells[0,i-Ord(d1)+1]:=perStr[i];
+
+ for d:=d1 to d2 do
+ begin
+   Res1:=(d=Friday) and not(a) or (b<>8) and (c<=0);
+   Res2:=(ord(d)+1)+trunc(b/10);////если не прокатит, то убери +1
+   Res3:=3*tan((ord(d)*pi)/7)+sin(c*b);
+
+   if Res1 then
+     StringGrid1.Cells[1, Ord(d)-Ord(d1)+1]:='True'
+   else
+     StringGrid1.Cells[1, Ord(d)-Ord(d1)+1]:='False';
+
+   StringGrid1.Cells[2, Ord(d)-Ord(d1)+1]:=IntToStr(Res2);
+   StringGrid1.Cells[3, Ord(d)-Ord(d1)+1]:=Format('%8.4f',[Res3]);
+   // или StringGrid1.Cells[3, Ord(d)-Ord(d1)+1]:=FloatToStrF(Res3, ffFixed, 8, 4);
+ end;
+
+end;
+
+procedure TForm1.Button2Click(Sender: TObject);
+begin
+close;
+end;
+
+procedure TForm1.Edit2Exit(Sender: TObject);
+var prob_c: single;
+begin
+  try // попытаемс€
+    prob_c:=StrToFloat(Edit2.Text);
+
+    if not (abs(prob_c)<20) then
+    begin
+      ShowMessage('— должно лежать на отрезке (-20, 20)');
+      Edit2.Text:='3';
+    end;
+    
+  except // если при преобразовании StrToFloat ошибка 
+    ShowMessage('— - не число или нужна . вместо ,');
+    Edit2.Text:='3';
+  end;
+
+end;
+
+
+procedure TForm1.RadioGroup1Click(Sender: TObject);
+begin
+   if RadioGroup1.ItemIndex > RadioGroup2.ItemIndex then
+  begin
+    ShowMessage('D1 должно быть меньше или равно D2');
+    RadioGroup1.ItemIndex := RadioGroup2.ItemIndex;
+  end;
+
+end;
+
+procedure TForm1.RadioGroup2Click(Sender: TObject);
+begin
+  if RadioGroup1.ItemIndex > RadioGroup2.ItemIndex then
+  begin
+    ShowMessage('D2 должно быть больше или равно D1');
+    RadioGroup2.ItemIndex := RadioGroup1.ItemIndex;
+  end;
+
+end;
+
+end.
