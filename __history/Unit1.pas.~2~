@@ -106,9 +106,9 @@ begin
   try // попытаемся
     prob_c:=StrToFloat(Edit2.Text);
 
-    if not (abs(prob_c)<=20) then
+    if not (abs(prob_c)<20) then
     begin
-      ShowMessage('С должно лежать на отрезке [-20, 20]');
+      ShowMessage('С должно лежать на отрезке (-20, 20)');
       Edit2.Text:='3';
     end;
     

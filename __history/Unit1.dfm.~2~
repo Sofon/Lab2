@@ -2,8 +2,8 @@ object Form1: TForm1
   Left = 477
   Top = 212
   Caption = #1058#1072#1073#1091#1083#1080#1088#1086#1074#1072#1085#1080#1077' '#1090#1088#1105#1093' '#1092#1091#1085#1082#1094#1080#1081
-  ClientHeight = 419
-  ClientWidth = 375
+  ClientHeight = 511
+  ClientWidth = 567
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -55,9 +55,9 @@ object Form1: TForm1
     TabOrder = 1
   end
   object RadioGroup1: TRadioGroup
-    Left = 117
+    Left = 130
     Top = 13
-    Width = 116
+    Width = 150
     Height = 124
     Caption = 'D '#1085#1072#1095#1072#1083#1100#1085#1086#1077
     ItemIndex = 0
@@ -85,8 +85,8 @@ object Form1: TForm1
   object StringGrid1: TStringGrid
     Left = 7
     Top = 143
-    Width = 354
-    Height = 207
+    Width = 403
+    Height = 176
     ColCount = 4
     Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goColSizing]
     TabOrder = 4
@@ -106,9 +106,9 @@ object Form1: TForm1
     OnExit = Edit2Exit
   end
   object RadioGroup2: TRadioGroup
-    Left = 239
+    Left = 299
     Top = 13
-    Width = 106
+    Width = 144
     Height = 124
     Caption = 'D '#1082#1086#1085#1077#1095#1085#1086#1077
     ItemIndex = 3
@@ -124,8 +124,8 @@ object Form1: TForm1
     OnClick = RadioGroup2Click
   end
   object Button1: TButton
-    Left = -1
-    Top = 356
+    Left = 7
+    Top = 332
     Width = 176
     Height = 52
     Caption = #1056#1077#1096#1080#1090#1100
@@ -133,8 +133,8 @@ object Form1: TForm1
     OnClick = Button1Click
   end
   object Button2: TButton
-    Left = 181
-    Top = 356
+    Left = 254
+    Top = 332
     Width = 189
     Height = 52
     Caption = #1047#1072#1082#1088#1099#1090#1100
